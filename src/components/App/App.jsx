@@ -28,9 +28,7 @@ export const App = () => {
             <Route path="*" element={<NotFound />} />
             {/* End of tier 3 */}
           </Route>
-          {/* End of tier 2 */}
         </Route>
-        {/* End of tier 1 */}
       </Routes>
     </>
   );
