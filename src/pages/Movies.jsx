@@ -1,12 +1,14 @@
 // import MovieDetails from 'components/MovieDetails/MovieDetails';
+import SearchForm from 'components/SearchForm/SearchForm';
 import { Link, Outlet } from 'react-router-dom';
 
 export default function Movies() {
   return (
     <>
-      <Link to="/">Go back</Link>
-      {/* <MovieDetails/> */}
+      <SearchForm />
 
+      {/* <MovieDetails/> */}
+      <Link to="/">Go back</Link>
       <hr />
       <p>Additional information</p>
 
