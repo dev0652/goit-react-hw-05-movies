@@ -75,7 +75,3 @@ export default function MovieDetails() {
     </>
   );
 }
-
-// export default function MovieDetails() {
-//   return <div>MovieDetails</div>;
-// }
