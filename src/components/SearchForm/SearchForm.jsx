@@ -3,11 +3,12 @@ import { useSearchParams } from 'react-router-dom';
 
 // ###############################
 
-export default function SearchForm({}) {
+export default function SearchForm() {
   //
   const [input, setInput] = useState('');
 
   const [searchParams, setSearchParams] = useSearchParams();
+
   const query = searchParams.get('query') ?? '';
   console.log('query: ', query);
 

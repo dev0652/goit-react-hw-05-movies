@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-// import axios from 'axios';
-import { getTrendingMovies } from 'api';
+import axios from 'axios';
+import 'api';
 
 // ###### Home ####################################
 
@@ -9,28 +9,25 @@ export default function Home() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // if (!query) return;
+    let cancel;
 
-    async function renderTrending() {
+    async function getTrendingMovies() {
       try {
-        // setIsLoading(true);
-        // toast.remove();
-
-        const response = await getTrendingMovies();
-
+        const response = await axios.get('/trending/movie/day', {
+          cancelToken: new axios.CancelToken(c => (cancel = c)),
+        });
         setMovies(response.data.results);
-        //
       } catch ({ message }) {
-        // toast.error(message);
-        setError(message);
-        //
+        if (message !== 'canceled') {
+          setError(message);
+        }
       }
     }
 
-    renderTrending();
-  });
+    getTrendingMovies();
 
-  //  getTrendingMovies();
+    return () => cancel();
+  }, []);
 
   return (
     <>

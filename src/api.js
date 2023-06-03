@@ -11,6 +11,7 @@ axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 // ########################################
 
-export async function getTrendingMovies() {
-  return await axios.get('/trending/movie/day');
-}
+// export async function getTrendingMovies() {
+//   const response = await axios.get('/trending/movie/day');
+//   return response.data;
+// }
