@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 import 'api';
 
@@ -13,6 +15,8 @@ export default function Home() {
 
     async function getTrendingMovies() {
       try {
+        setError('');
+
         const response = await axios.get('/trending/movie/day', {
           cancelToken: new axios.CancelToken(c => (cancel = c)),
         });
@@ -38,7 +42,9 @@ export default function Home() {
       {movies && (
         <ul>
           {movies.map(({ id, title }) => (
-            <li key={id}>{title}</li>
+            <li key={id}>
+              <Link to={`/movies/${id}`}>{title}</Link>
+            </li>
           ))}
         </ul>
       )}

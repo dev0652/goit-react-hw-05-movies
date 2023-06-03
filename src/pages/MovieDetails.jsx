@@ -1,16 +1,81 @@
-// import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link, Outlet } from 'react-router-dom';
 
-// export default function MovieDetails() {
-//   const { movieId } = useParams();
+import axios from 'axios';
+import 'api';
 
-//   return (
-//     <div>
-//       MovieDetails:
-//       <p>{movieId}</p>
-//     </div>
-//   );
-// }
+import MovieInfo from 'components/MovieInfo/MovieInfo';
+
+// ############################################################
 
 export default function MovieDetails() {
-  return <div>MovieDetails</div>;
+  const { movieId } = useParams();
+
+  const [movieData, setMovieData] = useState(null);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    let cancel;
+
+    async function getMovieData() {
+      try {
+        setError('');
+        setIsLoading(true);
+
+        const response = await axios.get('/movie/' + movieId, {
+          cancelToken: new axios.CancelToken(c => (cancel = c)),
+        });
+
+        setMovieData(response.data);
+      } catch ({ message }) {
+        if (message !== 'canceled') {
+          setError(message);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    getMovieData();
+
+    return () => cancel();
+  }, [movieId]);
+
+  if (!movieData) return;
+
+  return (
+    <>
+      <Link to="/">Go back</Link>
+      <br />
+      <br />
+      {isLoading && <div>Loading...</div>}
+
+      {error && <div>{error}</div>}
+
+      {movieData && !isLoading && (
+        <>
+          <MovieInfo data={movieData} />
+
+          <hr />
+          <p>Additional information</p>
+          <ul>
+            <li>
+              <Link to="cast">Cast</Link>
+            </li>
+            <li>
+              <Link to="reviews">Reviews</Link>
+            </li>
+          </ul>
+
+          <hr />
+          <Outlet />
+        </>
+      )}
+    </>
+  );
 }
+
+// export default function MovieDetails() {
+//   return <div>MovieDetails</div>;
+// }
