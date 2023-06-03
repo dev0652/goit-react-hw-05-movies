@@ -1,13 +1,12 @@
 import React from 'react';
-
-const imagePath = 'https://image.tmdb.org/t/p/w300';
-const imagePath2x = 'https://image.tmdb.org/t/p/w600';
+import { imagePath, imagePath2x } from 'imagePaths';
+import { MovieDetailsWrapper } from './MovieInfo.styled';
 
 export default function MovieInfo({ data }) {
   const { title, poster_path, overview, genres, vote_average } = data;
 
   return (
-    <div>
+    <MovieDetailsWrapper>
       <div>
         <img
           src={imagePath + poster_path}
@@ -27,6 +26,6 @@ export default function MovieInfo({ data }) {
         <h3>Genres</h3>
         <p>{genres.map(genre => genre.name).join(', ')}</p>
       </div>
-    </div>
+    </MovieDetailsWrapper>
   );
 }
