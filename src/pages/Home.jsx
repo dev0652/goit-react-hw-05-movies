@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <div>Trending movies</div>
+      <h1>Trending today</h1>
 
       {error && <div>{error}</div>}
 
