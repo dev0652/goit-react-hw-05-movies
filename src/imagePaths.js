@@ -1,6 +1,9 @@
 export const imagePath = 'https://image.tmdb.org/t/p/w342';
 export const imagePath2x = 'https://image.tmdb.org/t/p/w500';
 
+export const backdropPath = 'https://image.tmdb.org/t/p/w780';
+export const backdropPath2x = 'https://image.tmdb.org/t/p/w1280';
+
 // const images = {
 //   base_url: 'http://image.tmdb.org/t/p/',
 //   secure_base_url: 'https://image.tmdb.org/t/p/',

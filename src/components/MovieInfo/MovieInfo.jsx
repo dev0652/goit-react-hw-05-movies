@@ -1,14 +1,15 @@
 import React from 'react';
-import { imagePath, imagePath2x } from 'imagePaths';
+import { imagePath, imagePath2x, backdropPath2x } from 'imagePaths';
 import { MovieDetailsWrapper } from './MovieInfo.styled';
 
 // https://image.tmdb.org/t/p/w600/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg
 
 export default function MovieInfo({ data }) {
-  const { title, poster_path, overview, genres, vote_average } = data;
+  const { title, poster_path, overview, genres, vote_average, backdrop_path } =
+    data;
 
   return (
-    <MovieDetailsWrapper>
+    <MovieDetailsWrapper bgLink={`${backdropPath2x + backdrop_path}`}>
       <div>
         <img
           src={imagePath + poster_path}
