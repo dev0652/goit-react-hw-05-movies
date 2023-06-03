@@ -17,7 +17,9 @@ export default function SharedLayout() {
         </nav>
       </Header>
 
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
