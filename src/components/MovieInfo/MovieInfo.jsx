@@ -1,23 +1,21 @@
-import React from 'react';
-import { imagePath, imagePath2x, backdropPath2x } from 'imagePaths';
 import { MovieDetailsWrapper } from './MovieInfo.styled';
 
-// https://image.tmdb.org/t/p/w600/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg
+import { imageBaseURL } from 'api';
+
+// ############################################################
 
 export default function MovieInfo({ data }) {
   const { title, poster_path, overview, genres, vote_average, backdrop_path } =
     data;
 
   return (
-    <MovieDetailsWrapper bgLink={`${backdropPath2x + backdrop_path}`}>
+    <MovieDetailsWrapper bgLink={`${imageBaseURL}w1280${backdrop_path}`}>
       <div>
         <img
-          src={imagePath + poster_path}
-          srcSet={`${imagePath + poster_path} 1x, ${
-            imagePath2x + poster_path
-          } 2x`}
+          src={`${imageBaseURL}w342${poster_path}`}
+          srcSet={`${imageBaseURL}w342${poster_path} 1x, ${imageBaseURL}w500${poster_path} 2x`}
           alt={`Poster of ${title}`}
-        ></img>
+        />
       </div>
       <div>
         <h2>{title}</h2>

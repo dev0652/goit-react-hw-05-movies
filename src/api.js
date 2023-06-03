@@ -9,6 +9,8 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
+export const imageBaseURL = 'https://image.tmdb.org/t/p/';
+
 // ########################################
 
 // export async function getTrendingMovies() {
