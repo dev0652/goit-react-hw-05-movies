@@ -47,13 +47,16 @@ export default function Cast() {
 
   return (
     <>
+      <h2>Cast</h2>
+      {credits.length === 0 && !isLoading && (
+        <div>Sorry, we have no cast information for this movie. </div>
+      )}
       {isLoading && <div>Loading...</div>}
 
       {error && <div>{error}</div>}
 
       {credits && !isLoading && (
         <div>
-          <h2>Cast</h2>
           <ul>
             {credits.cast.map(({ id, name, character, profile_path }) => (
               <li key={id}>
