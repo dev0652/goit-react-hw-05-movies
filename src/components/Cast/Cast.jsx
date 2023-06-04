@@ -24,7 +24,7 @@ export default function Cast() {
         setError('');
         setIsLoading(true);
 
-        const response = await axios.get('/movie/' + movieId + '/credits', {
+        const response = await axios.get(`/movie/${movieId}/credits`, {
           cancelToken: new axios.CancelToken(c => (cancel = c)),
         });
 
@@ -56,19 +56,17 @@ export default function Cast() {
           <h2>Cast</h2>
           <ul>
             {credits.cast.map(({ id, name, character, profile_path }) => (
-              <>
-                <li key={id}>
-                  <div>
-                    <img
-                      src={`${imageBaseURL}w185${profile_path}`}
-                      // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
-                      alt={name}
-                    />
-                    <p>{name}</p>
-                    <p>{character}</p>
-                  </div>
-                </li>
-              </>
+              <li key={id}>
+                <div>
+                  <img
+                    src={`${imageBaseURL}w185${profile_path}`}
+                    // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
+                    alt={name}
+                  />
+                  <p>{name}</p>
+                  <p>{character}</p>
+                </div>
+              </li>
             ))}
           </ul>
         </div>
