@@ -4,6 +4,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import 'api';
 import { imageBaseURL } from 'api';
+import {
+  ActorName,
+  As,
+  Image,
+  ImageWrapper,
+  List,
+  ListItem,
+  Meta,
+} from './Cast.styled';
 
 // ############################################################
 
@@ -57,21 +66,23 @@ export default function Cast() {
 
       {credits && !isLoading && (
         <div>
-          <ul>
+          <List>
             {credits.cast.map(({ id, name, character, profile_path }) => (
-              <li key={id}>
-                <div>
-                  <img
+              <ListItem key={id}>
+                <ImageWrapper>
+                  <Image
                     src={`${imageBaseURL}w185${profile_path}`}
                     // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
                     alt={name}
                   />
-                  <p>{name}</p>
-                  <p>{character}</p>
-                </div>
-              </li>
+                  <Meta>
+                    <ActorName>{name}</ActorName>
+                    <As>{character}</As>
+                  </Meta>
+                </ImageWrapper>
+              </ListItem>
             ))}
-          </ul>
+          </List>
         </div>
       )}
     </>

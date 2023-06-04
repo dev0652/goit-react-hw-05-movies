@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import axios from 'axios';
 import 'api';
+import { ReviewAuthor, ReviewText } from './Reviews.styled';
 
 // ############################################################
 
@@ -61,8 +62,8 @@ export default function Reviews() {
             {reviews.map(({ id, author, content }) => (
               <li key={id}>
                 <div>
-                  <h3>Author: {author}</h3>
-                  <p>{content}</p>
+                  <ReviewAuthor>Author: {author}</ReviewAuthor>
+                  <ReviewText>{content}</ReviewText>
                 </div>
               </li>
             ))}
