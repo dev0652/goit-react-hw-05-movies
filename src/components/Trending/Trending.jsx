@@ -55,7 +55,7 @@ export default function Trending() {
           {movies.map(
             ({ id, title, poster_path = null, release_date = null }) => (
               <ListItem key={id}>
-                <StyledLink to={`/movies/${id}`}>
+                <StyledLink to={`/movies/${id}`} state={{ from: '/' }}>
                   <div>
                     <Image
                       src={`${imageBaseURL}w185${poster_path}`}

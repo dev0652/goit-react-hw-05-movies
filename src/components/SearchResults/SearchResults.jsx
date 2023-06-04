@@ -11,6 +11,8 @@ import {
 import { imageBaseURL } from 'api';
 
 export default function SearchResults({ data, query }) {
+  if (query === '') return <div>Empty query</div>;
+
   return (
     <List>
       {data.map(({ id, title, poster_path = null, release_date = null }) => {
