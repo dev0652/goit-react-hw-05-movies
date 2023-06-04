@@ -10,7 +10,7 @@ export default function Reviews() {
   const { movieId } = useParams();
 
   const [reviews, setReviews] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Reviews() {
 
     async function getReviews() {
       try {
-        setError('');
+        setError(null);
         setIsLoading(true);
 
         const response = await axios.get(`/movie/${movieId}/reviews`, {

@@ -11,7 +11,7 @@ export default function Cast() {
   const { movieId } = useParams();
 
   const [credits, setCredits] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Cast() {
 
     async function getCredits() {
       try {
-        setError('');
+        setError(null);
         setIsLoading(true);
 
         const response = await axios.get(`/movie/${movieId}/credits`, {
