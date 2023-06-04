@@ -53,7 +53,6 @@ export default function Movies() {
     <>
       <SearchForm action={setSearchParams} />
       {isLoading && <div>Loading...</div>}
-
       {error && <div>{error}</div>}
 
       {results && <SearchResults data={results} query={query} />}

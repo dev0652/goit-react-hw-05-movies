@@ -13,7 +13,9 @@ export default function SearchForm({ action }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    action({ query: input });
+    if (input.trim() !== '') action({ query: input });
+    if (input.trim() === '') alert('Your search request is empty');
+
     setInput('');
     // or
     // e.currentTarget.reset();
