@@ -10,7 +10,10 @@ import MovieInfo from 'components/MovieInfo/MovieInfo';
 
 export default function MovieDetails() {
   const { movieId } = useParams();
-  const { state } = useLocation();
+
+  const location = useLocation();
+  console.log('location on MovieDetails: ', location);
+  const backLink = location.state?.from ?? '/movies';
 
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState('');
@@ -47,7 +50,7 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to={state.from}>Go back</Link>
+      <Link to={backLink}>Go back</Link>
       <br />
       <br />
       {isLoading && <div>Loading...</div>}
@@ -62,10 +65,14 @@ export default function MovieDetails() {
           <p>Additional information</p>
           <ul>
             <li>
-              <Link to="cast">Cast</Link>
+              <Link to="cast" state={{ from: backLink }}>
+                Cast
+              </Link>
             </li>
             <li>
-              <Link to="reviews">Reviews</Link>
+              <Link to="reviews" state={{ from: backLink }}>
+                Reviews
+              </Link>
             </li>
           </ul>
 
