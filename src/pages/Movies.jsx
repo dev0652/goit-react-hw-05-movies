@@ -56,7 +56,7 @@ export default function Movies() {
 
       {error && <div>{error}</div>}
 
-      {results && <SearchResults data={results} />}
+      {results && <SearchResults data={results} query={query} />}
     </>
   );
 }

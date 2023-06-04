@@ -5,7 +5,6 @@ import { useState } from 'react';
 export default function SearchForm({ action }) {
   //
   const [input, setInput] = useState('');
-  // eslint-disable-next-line
 
   const handleChange = e => {
     setInput(e.target.value);

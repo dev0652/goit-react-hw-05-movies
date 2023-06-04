@@ -15,7 +15,7 @@ export const MovieDetailsWrapper = styled.div`
   background: linear-gradient(
       to right bottom,
       rgb(35, 24, 24),
-      rgba(35, 24, 24, 0.84)
+      rgba(35, 24, 24, 0.7)
     ),
     ${props => `url(${props.bgLink})`};
   background-size: cover;

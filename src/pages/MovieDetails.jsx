@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 
 import axios from 'axios';
 import 'api';
@@ -10,6 +10,7 @@ import MovieInfo from 'components/MovieInfo/MovieInfo';
 
 export default function MovieDetails() {
   const { movieId } = useParams();
+  const { state } = useLocation();
 
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState('');
@@ -46,7 +47,7 @@ export default function MovieDetails() {
 
   return (
     <>
-      <Link to="/">Go back</Link>
+      <Link to={state.from}>Go back</Link>
       <br />
       <br />
       {isLoading && <div>Loading...</div>}

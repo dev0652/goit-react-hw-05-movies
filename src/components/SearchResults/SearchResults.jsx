@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function SearchResults({ data }) {
+export default function SearchResults({ data, query }) {
   return (
     <ul>
       {data.map(({ id, title, release_date = null }) => {
@@ -8,7 +8,10 @@ export default function SearchResults({ data }) {
 
         return (
           <li key={id}>
-            <Link to={`/movies/${id}`}>
+            <Link
+              to={`/movies/${id}`}
+              state={{ from: `/movies?query=${query}` }}
+            >
               {title} {year}
             </Link>
           </li>
