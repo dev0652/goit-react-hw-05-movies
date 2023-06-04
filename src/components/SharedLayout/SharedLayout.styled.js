@@ -10,6 +10,8 @@ export const Header = styled.header`
   margin-bottom: 16px;
   border-bottom: 1px solid black;
 
+  background-color: rgb(3, 37, 65);
+
   > nav {
     display: flex;
   }
@@ -19,11 +21,23 @@ export const StyledNavLink = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: whiteSmoke;
   font-weight: 500;
 
+  :hover,
+  :focus {
+    text-decoration: none;
+    color: goldenRod;
+  }
+
   &.active {
-    color: white;
-    background-color: orangered;
+    color: rgb(45, 187, 208);
+    /* background-color: orangeRed; */
+
+    :hover,
+    :focus {
+      text-decoration: none;
+      color: goldenRod;
+    }
   }
 `;

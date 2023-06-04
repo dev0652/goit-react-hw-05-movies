@@ -22,6 +22,8 @@ export default function MovieInfo({ data }) {
             src={`${imageBaseURL}w342${poster_path}`}
             srcSet={`${imageBaseURL}w342${poster_path} 1x, ${imageBaseURL}w500${poster_path} 2x`}
             alt={`Poster of ${title}`}
+            width="300"
+            height="450"
           />
         )}
       </div>

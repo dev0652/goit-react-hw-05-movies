@@ -1,5 +1,5 @@
-import React from 'react';
+import Error404 from 'components/Error404/Error404';
 
 export default function NotFound() {
-  return <div>404: Паге нот фаунд</div>;
+  return <Error404 />;
 }

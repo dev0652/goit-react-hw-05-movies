@@ -5,6 +5,8 @@ export const MovieDetailsWrapper = styled.div`
   flex-direction: column;
   gap: 20px;
 
+  padding: 30px;
+
   @media screen and (min-width: 480px) {
     flex-direction: row;
   }
