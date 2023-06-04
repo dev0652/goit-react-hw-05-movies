@@ -1,22 +1,43 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import {
+  Image,
+  List,
+  ListItem,
+  Meta,
+  StyledLink,
+  Title,
+  Year,
+} from './SearchResults.styled';
+import { imageBaseURL } from 'api';
 
 export default function SearchResults({ data, query }) {
   return (
-    <ul>
-      {data.map(({ id, title, release_date = null }) => {
+    <List>
+      {data.map(({ id, title, poster_path = null, release_date = null }) => {
         const year = release_date ? `(${release_date.slice(0, 4)})` : null;
 
         return (
-          <li key={id}>
-            <Link
+          <ListItem key={id}>
+            <StyledLink
               to={`/movies/${id}`}
               state={{ from: `/movies?query=${query}` }}
             >
-              {title} {year}
-            </Link>
-          </li>
+              <div>
+                <Image
+                  src={`${imageBaseURL}w185${poster_path}`}
+                  // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
+                  alt={title}
+                />
+
+                <Meta>
+                  <Title>{title}</Title>
+                  {release_date && <Year>{year}</Year>}
+                </Meta>
+              </div>
+            </StyledLink>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 }
