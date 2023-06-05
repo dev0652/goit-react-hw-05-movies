@@ -32,7 +32,6 @@ export const StyledNavLink = styled(NavLink)`
 
   &.active {
     color: rgb(45, 187, 208);
-    /* background-color: orangeRed; */
 
     :hover,
     :focus {

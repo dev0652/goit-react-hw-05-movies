@@ -14,7 +14,9 @@ export default function SearchResults({ data, query, isLoading }) {
   return (
     <>
       {data.length === 0 && !isLoading && (
-        <div>Sorry, your query returned no matches</div>
+        <div style={{ marginTop: '10px', color: 'rgb(45, 187, 208)' }}>
+          Sorry, your query returned no matches
+        </div>
       )}
 
       {data && (
@@ -36,7 +38,7 @@ export default function SearchResults({ data, query, isLoading }) {
                         src={
                           poster_path
                             ? `${imageBaseURL}w185${poster_path}`
-                            : 'https://fakeimg.pl/160x240?text=No+image&font=noto'
+                            : 'https://fakeimg.pl/175x260?text=No+image&font=noto'
                         }
                         // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
                         alt={title}
