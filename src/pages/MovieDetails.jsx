@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 
 import axios from 'axios';
@@ -27,7 +27,7 @@ export default function MovieDetails() {
         setIsLoading(true);
 
         const response = await axios.get('/movie/' + movieId, {
-          cancelToken: new axios.CancelToken((c) => (cancel = c)),
+          cancelToken: new axios.CancelToken(c => (cancel = c)),
         });
 
         setMovieData(response.data);
