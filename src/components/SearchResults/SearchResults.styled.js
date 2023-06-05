@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 10px;
 `;
 
 export const ListItem = styled.li`
-  width: 160px;
-  min-width: 110px;
+  width: 175px;
+  min-width: 175px;
   font-size: 0.8rem;
 
   border: 0.5px solid lightGray;
