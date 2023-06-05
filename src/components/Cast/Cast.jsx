@@ -67,21 +67,27 @@ export default function Cast() {
       {credits && !isLoading && (
         <div>
           <List>
-            {credits.cast.map(({ id, name, character, profile_path }) => (
-              <ListItem key={id}>
-                <ImageWrapper>
-                  <Image
-                    src={`${imageBaseURL}w185${profile_path}`}
-                    // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
-                    alt={name}
-                  />
-                  <Meta>
-                    <ActorName>{name}</ActorName>
-                    <As>{character}</As>
-                  </Meta>
-                </ImageWrapper>
-              </ListItem>
-            ))}
+            {credits.cast.map(
+              ({ id, name, character, profile_path = null }) => (
+                <ListItem key={id}>
+                  <ImageWrapper>
+                    <Image
+                      src={
+                        profile_path
+                          ? `${imageBaseURL}w185${profile_path}`
+                          : 'https://fakeimg.pl/120x180?text=No+photo&font=noto'
+                      }
+                      // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
+                      alt={name}
+                    />
+                    <Meta>
+                      <ActorName>{name}</ActorName>
+                      <As>{character}</As>
+                    </Meta>
+                  </ImageWrapper>
+                </ListItem>
+              )
+            )}
           </List>
         </div>
       )}

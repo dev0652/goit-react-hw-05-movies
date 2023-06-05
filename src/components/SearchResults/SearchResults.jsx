@@ -31,7 +31,11 @@ export default function SearchResults({ data, query }) {
                   >
                     <div>
                       <Image
-                        src={`${imageBaseURL}w185${poster_path}`}
+                        src={
+                          poster_path
+                            ? `${imageBaseURL}w185${poster_path}`
+                            : 'https://fakeimg.pl/160x240?text=No+image&font=noto'
+                        }
                         // srcSet={`${imageBaseURL}w185${profile_path} 1x, ${imageBaseURL}w185${profile_path} 2x`}
                         alt={title}
                       />

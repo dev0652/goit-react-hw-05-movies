@@ -4,13 +4,13 @@ export const List = styled.ul`
   display: flex;
   gap: 10px;
 
-  /* max-width: 300px; */
+  width: 90vw;
   overflow-x: auto;
 `;
 
 export const ListItem = styled.li`
-  width: 110px;
-  min-width: 110px;
+  width: 120px;
+  min-width: 120px;
   font-size: 0.8rem;
 
   border: 0.5px solid lightGray;
