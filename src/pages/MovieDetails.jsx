@@ -27,7 +27,7 @@ export default function MovieDetails() {
         setIsLoading(true);
 
         const response = await axios.get('/movie/' + movieId, {
-          cancelToken: new axios.CancelToken(c => (cancel = c)),
+          cancelToken: new axios.CancelToken((c) => (cancel = c)),
         });
 
         setMovieData(response.data);
@@ -59,7 +59,6 @@ export default function MovieDetails() {
       {movieData && !isLoading && (
         <>
           <MovieInfo data={movieData} />
-
           <hr />
           <p>Additional information</p>
           <ul>
@@ -74,9 +73,10 @@ export default function MovieDetails() {
               </Link>
             </li>
           </ul>
-
           <hr />
-          <Outlet />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </>
       )}
     </>
