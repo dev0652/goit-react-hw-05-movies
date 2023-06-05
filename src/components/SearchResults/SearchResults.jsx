@@ -10,10 +10,12 @@ import {
 } from './SearchResults.styled';
 import { imageBaseURL } from 'api';
 
-export default function SearchResults({ data, query }) {
+export default function SearchResults({ data, query, isLoading }) {
   return (
     <>
-      {data.length === 0 && <div>Sorry, your query returned no matches</div>}
+      {data.length === 0 && !isLoading && (
+        <div>Sorry, your query returned no matches</div>
+      )}
 
       {data && (
         <List>

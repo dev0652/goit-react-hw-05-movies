@@ -55,7 +55,9 @@ export default function Movies() {
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
 
-      {results && <SearchResults data={results} query={query} />}
+      {results && (
+        <SearchResults data={results} isLoading={isLoading} query={query} />
+      )}
     </>
   );
 }
