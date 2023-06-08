@@ -5,12 +5,13 @@ import axios from 'axios';
 import 'api';
 
 import SearchForm from 'components/SearchForm/SearchForm';
-import SearchResults from 'components/SearchResults/SearchResults';
+import MovieList from 'components/MovieList/MovieList';
 
-// ###############################
+// ###### Movies ####################################
 
 export default function Movies() {
-  const [results, setResults] = useState(null);
+  //
+  const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -55,8 +56,14 @@ export default function Movies() {
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}
 
-      {results && (
-        <SearchResults data={results} isLoading={isLoading} query={query} />
+      {results.length === 0 && !isLoading && (
+        <div style={{ marginTop: '10px', color: 'rgb(45, 187, 208)' }}>
+          Sorry, your query returned no matches
+        </div>
+      )}
+
+      {results.length > 0 && (
+        <MovieList data={results} isDateAYear={true} query={query} />
       )}
     </>
   );

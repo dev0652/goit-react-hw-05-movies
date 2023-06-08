@@ -42,3 +42,6 @@ export const StyledLink = styled(Link)`
     text-decoration: none;
   }
 `;
+export const ReleaseDate = styled.p`
+  color: gray;
+`;
